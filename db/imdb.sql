@@ -1,14 +1,12 @@
-DROP TABLE CASTINGS;
-DROP TABLE STARS;
-DROP TABLE MOVIES;
-
-
+DROP TABLE castings;
+DROP TABLE stars;
+DROP TABLE movies;
 
 CREATE TABLE movies(
   id SERIAL4 PRIMARY KEY,
   title VARCHAR(255),
   genre VARCHAR(255),
-  rating INT4
+  ratings INT4
 );
 CREATE TABLE stars(
   id SERIAL4 PRIMARY KEY,
@@ -17,7 +15,7 @@ CREATE TABLE stars(
 );
 CREATE TABLE castings(
   id SERIAL4 PRIMARY KEY,
-  movies_id INT4 REFERENCES movies(id) ON DELETE CASCADE,
-  stars_id INT4 REFERENCES stars(id) ON DELETE CASCADE,
+  movie_id INT4 REFERENCES movies(id) ON DELETE CASCADE,
+  star_id INT4 REFERENCES stars(id) ON DELETE CASCADE,
   fee INT4
 );
