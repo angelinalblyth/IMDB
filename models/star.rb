@@ -30,4 +30,10 @@ class Star
     return result
   end
 
+  def update()
+    sql = "UPDATE stars SET first_name = $1 where id = $2"
+    values = [@first_name, @id]
+    SqlRunner.run(sql, values)
+  end
+
 end

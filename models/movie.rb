@@ -31,4 +31,10 @@ def self.all()
   return result
 end
 
+def update()
+  sql = "UPDATE movies SET genre = $1 where id = $2"
+  values = [@genre, @id]
+  SqlRunner.run(sql, values)
+end
+
 end
