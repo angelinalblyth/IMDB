@@ -18,5 +18,9 @@ class Casting
     casting = SqlRunner.run( sql, values ).first
     @id = casting['id'].to_i
   end
+  def self.delete_all()
+  sql = "DELETE FROM castings"
+  SqlRunner.run(sql)
+end
 
 end
