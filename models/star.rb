@@ -19,8 +19,15 @@ class Star
   end
 
   def self.delete_all()
-  sql = "DELETE FROM stars"
-  SqlRunner.run(sql)
-end
+    sql = "DELETE FROM stars"
+    SqlRunner.run(sql)
+  end
+
+  def self.all()
+    sql = "SELECT * FROM stars"
+    stars = SqlRunner.run(sql)
+    result = stars.map { |star| Star.new( star ) }
+    return result
+  end
 
 end
